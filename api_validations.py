@@ -1,8 +1,11 @@
 import json
 
 import requests
+from utilities.resources import *
+from utilities.configurations import *
 
-response = requests.get("http://216.10.245.166//Library/GetBook.php",
+get_book_url = get_config()["API"]["endpoint"]+ apiResources.get_book_with_author_name
+response = requests.get(get_book_url,
              params={'AuthorName' : 'Rahul Shetty2'},)
 
 # print(response.text)
