@@ -1,14 +1,7 @@
 import mysql.connector
-import os
+from utilities.configurations import *
 
-#host, database, user, password
-connection = mysql.connector.connect(host="localhost",
-                                     database="PythonAutomation",
-                                     user="root",
-                                     password=os.getenv("MYSQL_PASSWORD"))
-
-print(connection.is_connected())
-
+connection = get_connection()
 cursor = connection.cursor()
 cursor.execute("select * from CustomerInfo")
 

@@ -1,11 +1,7 @@
 import mysql.connector
-import os
+from utilities.configurations import *
 
-#host, database, user, password
-connection = mysql.connector.connect(host='localhost',
-                        database='PythonAutomation',
-                        user='root',
-                        password=os.getenv("MYSQL_PASSWORD"))
+connection = get_connection()
 curser = connection.cursor()
 
 delete_query = "delete from CustomerInfo where CourseName = %s"
